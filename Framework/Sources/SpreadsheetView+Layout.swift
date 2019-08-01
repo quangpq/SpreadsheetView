@@ -281,16 +281,8 @@ extension SpreadsheetView {
             tableView.frame = tableView.state.frame
         }
 
-        let contentInset: UIEdgeInsets
-        if #available(iOS 11.0, *) {
-            #if swift(>=3.2)
-            contentInset = rootView.adjustedContentInset
-            #else
-            contentInset = rootView.value(forKey: "adjustedContentInset") as! UIEdgeInsets
-            #endif
-        } else {
-            contentInset = rootView.contentInset
-        }
+        let contentInset = rootView.contentInset
+
         let horizontalInset = contentInset.left + contentInset.right
         let verticalInset = contentInset.top + contentInset.bottom
 
